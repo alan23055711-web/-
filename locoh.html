@@ -3,7 +3,67 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>奢侈人生 | Luxury Life Timepieces</title>
+    
+    <!-- ==========================================
+         SEO Meta Tags (搜尋引擎優化)
+    =========================================== -->
+    <title>奢侈人生 Luxury Life | 頂級名錶復刻與客製化專家 - 勞力士、百達翡麗</title>
+    <meta name="description" content="奢侈人生 (Luxury Life) 專營頂級名錶復刻與客製化服務，擁有7年經驗與4間實體據點。提供勞力士 (Rolex)、百達翡麗 (Patek Philippe)、愛彼 (AP) 等世界名錶的專業諮詢、鑲鑽客製與完善售後保固。">
+    <meta name="keywords" content="勞力士, Rolex, 百達翡麗, Patek Philippe, 名錶復刻, 手錶客製化, 奢侈人生, Luxury Life, 水鬼, 迪通拿, 鑲鑽手錶, Richard Mille, 沛納海">
+    <meta name="author" content="奢侈人生 Luxury Life">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph (Facebook, LINE 預覽設定) -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="奢侈人生 Luxury Life | 頂級名錶復刻與客製化專家">
+    <meta property="og:description" content="尊榮的派頭，不用金錢衡量。7年淬鍊專業，4間實體據點，為您打造獨一無二的腕錶收藏。">
+    <meta property="og:url" content="https://www.luxurylife-timepieces.com"> <!-- 請替換為您的實際網址 -->
+    <meta property="og:image" content="https://images.unsplash.com/photo-1523170335258-f5ed11844a49?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80"> <!-- 示意圖：手錶圖片 -->
+    <meta property="og:site_name" content="奢侈人生 Luxury Life">
+    <meta property="og:locale" content="zh_TW">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="奢侈人生 Luxury Life | 頂級名錶復刻與客製化">
+    <meta name="twitter:description" content="以7年淬鍊的專業，演繹時間的藝術。提供勞力士、百達翡麗等頂級腕錶服務。">
+    <meta name="twitter:image" content="https://images.unsplash.com/photo-1523170335258-f5ed11844a49?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80">
+
+    <!-- Favicon (建議替換為您的 Logo) -->
+    <link rel="icon" type="image/png" href="https://cdn-icons-png.flaticon.com/512/5900/5900489.png">
+
+    <!-- Schema.org 結構化資料 (幫助 Google 辨識這是一間商店) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WatchStore",
+      "name": "奢侈人生 Luxury Life",
+      "image": "https://images.unsplash.com/photo-1523170335258-f5ed11844a49",
+      "description": "專營勞力士、百達翡麗等高階腕錶復刻與客製化服務。",
+      "priceRange": "$$$$",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Taipei",
+        "addressCountry": "TW"
+      },
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday",
+          "Saturday",
+          "Sunday"
+        ],
+        "opens": "11:00",
+        "closes": "21:00"
+      },
+      "telephone": "+886-900-000-000"
+    }
+    </script>
+
+    <!-- Styles & Scripts -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
@@ -154,9 +214,9 @@
             <div class="flex items-center justify-between h-24">
                 <!-- Logo -->
                 <div class="flex-shrink-0 cursor-pointer group" onclick="window.scrollTo(0,0)">
-                    <div class="font-serif text-2xl font-semibold tracking-widest text-white group-hover:text-lux-lightGreen transition-colors">
+                    <h1 class="font-serif text-xl md:text-2xl font-semibold tracking-widest text-white group-hover:text-lux-lightGreen transition-colors">
                         LUXURY<span class="text-lux-green">.LIFE</span>
-                    </div>
+                    </h1>
                     <div class="text-[9px] text-gray-500 uppercase tracking-[0.3em] mt-1 font-sans">Premium Timepieces</div>
                 </div>
 
@@ -173,7 +233,7 @@
 
                 <!-- Mobile menu button -->
                 <div class="md:hidden">
-                    <button onclick="document.getElementById('mobile-menu').classList.toggle('hidden')" class="text-gray-400 hover:text-white p-2">
+                    <button onclick="document.getElementById('mobile-menu').classList.toggle('hidden')" class="text-gray-400 hover:text-white p-2" aria-label="開啟選單">
                         <i class="fas fa-bars text-xl"></i>
                     </button>
                 </div>
@@ -181,70 +241,71 @@
         </div>
         <!-- Mobile Menu -->
         <div class="hidden md:hidden bg-black/95 border-b border-white/10 absolute w-full" id="mobile-menu">
-            <div class="px-6 py-4 space-y-4">
-                <a href="#must-read" class="block text-gray-300 hover:text-lux-green text-sm tracking-widest">購買必看</a>
-                <a href="#about" class="block text-gray-300 hover:text-lux-green text-sm tracking-widest">關於我</a>
-                <a href="#brands" class="block text-gray-300 hover:text-lux-green text-sm tracking-widest">品牌總覽</a>
-                <a href="#contact" class="block text-lux-green text-sm tracking-widest font-semibold">預約鑑賞 ></a>
+            <div class="px-6 py-6 space-y-6">
+                <a href="#must-read" class="block text-gray-300 hover:text-lux-green text-lg tracking-widest" onclick="document.getElementById('mobile-menu').classList.add('hidden')">購買必看</a>
+                <a href="#about" class="block text-gray-300 hover:text-lux-green text-lg tracking-widest" onclick="document.getElementById('mobile-menu').classList.add('hidden')">關於我</a>
+                <a href="#brands" class="block text-gray-300 hover:text-lux-green text-lg tracking-widest" onclick="document.getElementById('mobile-menu').classList.add('hidden')">品牌總覽</a>
+                <a href="#services" class="block text-gray-300 hover:text-lux-green text-lg tracking-widest" onclick="document.getElementById('mobile-menu').classList.add('hidden')">尊榮服務</a>
+                <a href="#contact" class="block text-lux-green text-lg tracking-widest font-semibold border-t border-white/10 pt-4" onclick="document.getElementById('mobile-menu').classList.add('hidden')">預約鑑賞 ></a>
             </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section class="h-screen flex items-center justify-center relative px-6">
+    <section class="min-h-screen flex items-center justify-center relative px-6 pt-20">
         <div class="text-center z-10 max-w-4xl mx-auto">
             <div class="mb-6 inline-block">
                 <span class="text-lux-green text-xs font-sans tracking-[0.4em] uppercase border-b border-lux-green/30 pb-2">High-End Replica & Customization</span>
             </div>
             
-            <h1 class="font-serif text-5xl md:text-7xl lg:text-8xl text-white mb-8 leading-tight">
+            <h2 class="font-serif text-4xl md:text-7xl lg:text-8xl text-white mb-8 leading-tight min-h-[1.2em]">
                 <span id="typewriter" class="typing-cursor"></span>
-            </h1>
+            </h2>
             
-            <p class="mt-6 max-w-2xl mx-auto text-lg text-gray-400 font-light font-sans tracking-wide leading-relaxed reveal">
-                以 7 年淬鍊的專業，演繹時間的藝術。<br>
+            <p class="mt-6 max-w-2xl mx-auto text-base md:text-lg text-gray-400 font-light font-sans tracking-wide leading-relaxed reveal px-4">
+                以 7 年淬鍊的專業，演繹時間的藝術。<br class="hidden md:block">
                 從極致復刻到專屬訂製，讓每一秒都成為經典。
             </p>
             
-            <div class="mt-12 flex flex-col md:flex-row justify-center gap-6 reveal">
-                <a href="#brands" class="btn-primary px-10 py-4 font-sans text-sm tracking-[0.2em]">
+            <div class="mt-12 flex flex-col md:flex-row justify-center gap-4 md:gap-6 reveal px-4">
+                <a href="#brands" class="btn-primary px-10 py-4 font-sans text-sm tracking-[0.2em] w-full md:w-auto">
                     探索系列
                 </a>
-                <a href="#contact" class="btn-luxury border border-white/30 text-white px-10 py-4 font-sans text-sm tracking-[0.2em] hover:bg-white/5">
+                <a href="#contact" class="btn-luxury border border-white/30 text-white px-10 py-4 font-sans text-sm tracking-[0.2em] hover:bg-white/5 w-full md:w-auto">
                     專屬諮詢
                 </a>
             </div>
         </div>
         
         <!-- Scroll Down Indicator -->
-        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce text-gray-600">
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce text-gray-600 hidden md:block">
             <span class="text-[10px] uppercase tracking-widest mb-2 block text-center">Scroll</span>
             <i class="fas fa-chevron-down text-lux-green"></i>
         </div>
     </section>
 
     <!-- Philosophy (Must Read) -->
-    <section id="must-read" class="py-32 relative bg-lux-dark">
+    <section id="must-read" class="py-20 md:py-32 relative bg-lux-dark">
         <div class="max-w-7xl mx-auto px-6 lg:px-8">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
                 
                 <!-- Text Content -->
                 <div class="order-2 lg:order-1 reveal">
-                    <h2 class="font-serif text-4xl text-white mb-2">核心價值</h2>
+                    <h2 class="font-serif text-3xl md:text-4xl text-white mb-2">核心價值</h2>
                     <p class="font-sans text-lux-green text-sm tracking-widest uppercase mb-10">The Philosophy</p>
                     
                     <div class="space-y-12">
                         <div class="relative pl-8 border-l border-lux-green/30">
-                            <h3 class="text-xl text-white font-serif italic mb-3">"尊榮的派頭，不用金錢衡量"</h3>
-                            <p class="text-gray-400 font-light leading-relaxed">
+                            <h3 class="text-lg md:text-xl text-white font-serif italic mb-3">"尊榮的派頭，不用金錢衡量"</h3>
+                            <p class="text-gray-400 font-light leading-relaxed text-sm md:text-base">
                                 卓越的品味，歸功鐘錶靈魂。<br>
                                 With an esteemed aura that defies monetary measures.
                             </p>
                         </div>
                         
                         <div class="relative pl-8 border-l border-lux-green/30">
-                            <h3 class="text-xl text-white font-serif italic mb-3">"無形的品味，地位的象徵"</h3>
-                            <p class="text-gray-400 font-light leading-relaxed">
+                            <h3 class="text-lg md:text-xl text-white font-serif italic mb-3">"無形的品味，地位的象徵"</h3>
+                            <p class="text-gray-400 font-light leading-relaxed text-sm md:text-base">
                                 『錶』不只紀錄時間，更是您人生高度的縮影。<br>
                                 鈔票花在刀口上為明智的抉擇，不須言語就能證實您的實力。
                             </p>
@@ -254,7 +315,7 @@
                 
                 <!-- Feature List (Styled as a luxury card) -->
                 <div class="order-1 lg:order-2 reveal">
-                    <div class="luxury-panel p-10 md:p-12 relative overflow-hidden bg-gradient-to-br from-gray-900 to-black">
+                    <div class="luxury-panel p-8 md:p-12 relative overflow-hidden bg-gradient-to-br from-gray-900 to-black rounded-lg">
                         <!-- Decorative Circle -->
                         <div class="absolute -right-10 -top-10 w-40 h-40 border border-lux-green/20 rounded-full"></div>
                         
@@ -292,17 +353,17 @@
     </section>
 
     <!-- About Me -->
-    <section id="about" class="py-32 relative bg-black">
+    <section id="about" class="py-20 md:py-32 relative bg-black">
         <div class="max-w-4xl mx-auto px-6 text-center reveal">
             <i class="fas fa-crown text-3xl text-lux-gold mb-6 opacity-80"></i>
-            <h2 class="font-serif text-4xl md:text-5xl text-white mb-6">關於 奢侈人生</h2>
+            <h2 class="font-serif text-3xl md:text-5xl text-white mb-6">關於 奢侈人生</h2>
             <div class="w-24 h-1 bg-lux-green mx-auto mb-10"></div>
             
             <p class="text-lg md:text-xl text-gray-300 leading-9 font-light font-serif italic mb-12">
                 「我們提供的不僅是腕錶，更是身分代碼的完美升級。」
             </p>
             
-            <p class="text-gray-400 leading-relaxed font-sans max-w-2xl mx-auto mb-16">
+            <p class="text-gray-400 leading-relaxed font-sans max-w-2xl mx-auto mb-16 text-sm md:text-base">
                 擁有 7 年資深服務經驗，專注於打造專屬個人的訂製品品牌。
                 在這個講求細節的時代，我們堅持材料皆為進口，並提供業界唯一的訂製服務。
                 每一隻腕錶都經過精密校準，確保與您的個人形象完美同步。
@@ -310,105 +371,105 @@
 
             <!-- Stats Grid -->
             <div class="grid grid-cols-2 md:grid-cols-4 gap-px bg-white/10 border border-white/10">
-                <div class="bg-black p-8 hover:bg-white/5 transition-colors duration-500">
-                    <div class="text-3xl font-serif text-white mb-2">7+</div>
-                    <div class="text-xs text-lux-green uppercase tracking-widest">Years Exp</div>
+                <div class="bg-black p-6 md:p-8 hover:bg-white/5 transition-colors duration-500">
+                    <div class="text-2xl md:text-3xl font-serif text-white mb-2">7+</div>
+                    <div class="text-[10px] md:text-xs text-lux-green uppercase tracking-widest">Years Exp</div>
                 </div>
-                <div class="bg-black p-8 hover:bg-white/5 transition-colors duration-500">
-                    <div class="text-3xl font-serif text-white mb-2">4</div>
-                    <div class="text-xs text-lux-green uppercase tracking-widest">Locations</div>
+                <div class="bg-black p-6 md:p-8 hover:bg-white/5 transition-colors duration-500">
+                    <div class="text-2xl md:text-3xl font-serif text-white mb-2">4</div>
+                    <div class="text-[10px] md:text-xs text-lux-green uppercase tracking-widest">Locations</div>
                 </div>
-                <div class="bg-black p-8 hover:bg-white/5 transition-colors duration-500">
-                    <div class="text-3xl font-serif text-white mb-2">100%</div>
-                    <div class="text-xs text-lux-green uppercase tracking-widest">Exclusive</div>
+                <div class="bg-black p-6 md:p-8 hover:bg-white/5 transition-colors duration-500">
+                    <div class="text-2xl md:text-3xl font-serif text-white mb-2">100%</div>
+                    <div class="text-[10px] md:text-xs text-lux-green uppercase tracking-widest">Exclusive</div>
                 </div>
-                <div class="bg-black p-8 hover:bg-white/5 transition-colors duration-500">
-                    <div class="text-3xl font-serif text-white mb-2">3yr</div>
-                    <div class="text-xs text-lux-green uppercase tracking-widest">Warranty</div>
+                <div class="bg-black p-6 md:p-8 hover:bg-white/5 transition-colors duration-500">
+                    <div class="text-2xl md:text-3xl font-serif text-white mb-2">3yr</div>
+                    <div class="text-[10px] md:text-xs text-lux-green uppercase tracking-widest">Warranty</div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Brands Architecture -->
-    <section id="brands" class="py-32 bg-lux-dark relative">
+    <section id="brands" class="py-20 md:py-32 bg-lux-dark relative">
         <!-- Subtle Pattern Background -->
         <div class="absolute inset-0 opacity-5" style="background-image: radial-gradient(#10b981 1px, transparent 1px); background-size: 30px 30px;"></div>
 
         <div class="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
-            <div class="flex flex-col md:flex-row justify-between items-end mb-16 border-b border-white/10 pb-6">
-                <div>
-                    <h2 class="font-serif text-4xl text-white mb-2">品牌資料庫</h2>
+            <div class="flex flex-col md:flex-row justify-between items-end mb-12 md:mb-16 border-b border-white/10 pb-6">
+                <div class="text-center md:text-left w-full md:w-auto">
+                    <h2 class="font-serif text-3xl md:text-4xl text-white mb-2">品牌資料庫</h2>
                     <p class="font-sans text-lux-green text-sm tracking-widest uppercase">Curated Collections</p>
                 </div>
-                <div class="text-xs text-gray-500 font-sans mt-4 md:mt-0">
+                <div class="text-xs text-gray-500 font-sans mt-4 md:mt-0 text-center md:text-right w-full md:w-auto">
                     點擊特定品牌查看系列細節
                 </div>
             </div>
 
             <!-- Brand Grid -->
-            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
                 
                 <!-- Rolex (Interactive) -->
-                <div onclick="toggleSubmenu('rolex-submenu')" class="luxury-panel p-8 cursor-pointer group text-center border-t-2 border-t-transparent hover:border-t-lux-green">
+                <div onclick="toggleSubmenu('rolex-submenu')" class="luxury-panel p-6 md:p-8 cursor-pointer group text-center border-t-2 border-t-transparent hover:border-t-lux-green rounded-sm">
                     <div class="h-12 flex items-center justify-center mb-4">
                         <span class="text-3xl text-white group-hover:text-lux-lightGreen transition-colors"><i class="fas fa-crown"></i></span>
                     </div>
-                    <h3 class="text-lg font-serif font-bold text-white tracking-wider">ROLEX</h3>
-                    <p class="text-xs text-gray-500 font-sans mt-2 uppercase tracking-widest">勞力士</p>
+                    <h3 class="text-base md:text-lg font-serif font-bold text-white tracking-wider">ROLEX</h3>
+                    <p class="text-[10px] md:text-xs text-gray-500 font-sans mt-2 uppercase tracking-widest">勞力士</p>
                     <div class="mt-6 w-8 h-px bg-white/20 mx-auto group-hover:w-16 group-hover:bg-lux-green transition-all duration-500"></div>
                 </div>
 
                 <!-- Patek (Interactive) -->
-                <div onclick="toggleSubmenu('patek-submenu')" class="luxury-panel p-8 cursor-pointer group text-center border-t-2 border-t-transparent hover:border-t-lux-green">
+                <div onclick="toggleSubmenu('patek-submenu')" class="luxury-panel p-6 md:p-8 cursor-pointer group text-center border-t-2 border-t-transparent hover:border-t-lux-green rounded-sm">
                     <div class="h-12 flex items-center justify-center mb-4">
                         <span class="text-3xl text-white group-hover:text-lux-lightGreen transition-colors"><i class="fas fa-star-of-life"></i></span>
                     </div>
-                    <h3 class="text-lg font-serif font-bold text-white tracking-wider">PATEK PHILIPPE</h3>
-                    <p class="text-xs text-gray-500 font-sans mt-2 uppercase tracking-widest">百達翡麗</p>
+                    <h3 class="text-base md:text-lg font-serif font-bold text-white tracking-wider">PATEK PHILIPPE</h3>
+                    <p class="text-[10px] md:text-xs text-gray-500 font-sans mt-2 uppercase tracking-widest">百達翡麗</p>
                     <div class="mt-6 w-8 h-px bg-white/20 mx-auto group-hover:w-16 group-hover:bg-lux-green transition-all duration-500"></div>
                 </div>
 
                 <!-- Standard Brands -->
-                <div class="luxury-panel p-8 group text-center hover:bg-white/5 transition-colors">
-                    <h3 class="text-base font-serif font-bold text-gray-300 group-hover:text-white tracking-wider">AUDEMARS PIGUET</h3>
+                <div class="luxury-panel p-6 md:p-8 group text-center hover:bg-white/5 transition-colors rounded-sm">
+                    <h3 class="text-sm md:text-base font-serif font-bold text-gray-300 group-hover:text-white tracking-wider">AUDEMARS PIGUET</h3>
                     <p class="text-[10px] text-gray-600 font-sans mt-2">愛彼</p>
                 </div>
-                <div class="luxury-panel p-8 group text-center hover:bg-white/5 transition-colors">
-                    <h3 class="text-base font-serif font-bold text-gray-300 group-hover:text-white tracking-wider">RICHARD MILLE</h3>
+                <div class="luxury-panel p-6 md:p-8 group text-center hover:bg-white/5 transition-colors rounded-sm">
+                    <h3 class="text-sm md:text-base font-serif font-bold text-gray-300 group-hover:text-white tracking-wider">RICHARD MILLE</h3>
                     <p class="text-[10px] text-gray-600 font-sans mt-2">理查德米勒</p>
                 </div>
-                <div class="luxury-panel p-8 group text-center hover:bg-white/5 transition-colors">
-                    <h3 class="text-base font-serif font-bold text-gray-300 group-hover:text-white tracking-wider">PANERAI</h3>
+                <div class="luxury-panel p-6 md:p-8 group text-center hover:bg-white/5 transition-colors rounded-sm">
+                    <h3 class="text-sm md:text-base font-serif font-bold text-gray-300 group-hover:text-white tracking-wider">PANERAI</h3>
                     <p class="text-[10px] text-gray-600 font-sans mt-2">沛納海</p>
                 </div>
-                <div class="luxury-panel p-8 group text-center hover:bg-white/5 transition-colors">
-                    <h3 class="text-base font-serif font-bold text-gray-300 group-hover:text-white tracking-wider">OMEGA</h3>
+                <div class="luxury-panel p-6 md:p-8 group text-center hover:bg-white/5 transition-colors rounded-sm">
+                    <h3 class="text-sm md:text-base font-serif font-bold text-gray-300 group-hover:text-white tracking-wider">OMEGA</h3>
                     <p class="text-[10px] text-gray-600 font-sans mt-2">歐米茄</p>
                 </div>
-                <div class="luxury-panel p-8 group text-center hover:bg-white/5 transition-colors">
-                    <h3 class="text-base font-serif font-bold text-gray-300 group-hover:text-white tracking-wider">CARTIER</h3>
+                <div class="luxury-panel p-6 md:p-8 group text-center hover:bg-white/5 transition-colors rounded-sm">
+                    <h3 class="text-sm md:text-base font-serif font-bold text-gray-300 group-hover:text-white tracking-wider">CARTIER</h3>
                     <p class="text-[10px] text-gray-600 font-sans mt-2">卡地亞</p>
                 </div>
-                <div class="luxury-panel p-8 group text-center hover:bg-white/5 transition-colors">
-                    <h3 class="text-base font-serif font-bold text-gray-300 group-hover:text-white tracking-wider">HUBLOT</h3>
+                <div class="luxury-panel p-6 md:p-8 group text-center hover:bg-white/5 transition-colors rounded-sm">
+                    <h3 class="text-sm md:text-base font-serif font-bold text-gray-300 group-hover:text-white tracking-wider">HUBLOT</h3>
                     <p class="text-[10px] text-gray-600 font-sans mt-2">宇舶</p>
                 </div>
-                <div class="luxury-panel p-8 group text-center hover:bg-white/5 transition-colors">
-                    <h3 class="text-base font-serif font-bold text-gray-300 group-hover:text-white tracking-wider">VACHERON</h3>
+                <div class="luxury-panel p-6 md:p-8 group text-center hover:bg-white/5 transition-colors rounded-sm">
+                    <h3 class="text-sm md:text-base font-serif font-bold text-gray-300 group-hover:text-white tracking-wider">VACHERON</h3>
                     <p class="text-[10px] text-gray-600 font-sans mt-2">江詩丹頓</p>
                 </div>
-                <div class="luxury-panel p-8 group text-center hover:bg-white/5 transition-colors">
-                    <h3 class="text-base font-serif font-bold text-gray-300 group-hover:text-white tracking-wider">IWC / TUDOR</h3>
+                <div class="luxury-panel p-6 md:p-8 group text-center hover:bg-white/5 transition-colors rounded-sm">
+                    <h3 class="text-sm md:text-base font-serif font-bold text-gray-300 group-hover:text-white tracking-wider">IWC / TUDOR</h3>
                     <p class="text-[10px] text-gray-600 font-sans mt-2">萬國 / 帝舵</p>
                 </div>
             </div>
 
             <!-- Submenus (Hidden by default) -->
-            <div id="rolex-submenu" class="hidden mt-12 p-8 border-t border-b border-lux-green bg-black/80 backdrop-blur-md animate-fade-in">
+            <div id="rolex-submenu" class="hidden mt-8 md:mt-12 p-6 md:p-8 border-t border-b border-lux-green bg-black/80 backdrop-blur-md animate-fade-in rounded-sm">
                 <div class="flex items-center mb-6">
                     <div class="w-2 h-2 bg-lux-green rounded-full mr-3"></div>
-                    <h4 class="text-white font-serif text-xl italic">Rolex Collections</h4>
+                    <h4 class="text-white font-serif text-lg md:text-xl italic">Rolex Collections</h4>
                 </div>
                 <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4 text-sm font-sans text-gray-400">
                     <div class="hover:text-lux-green cursor-pointer transition-colors py-1">Submariner 水鬼</div>
@@ -425,10 +486,10 @@
                 </div>
             </div>
 
-            <div id="patek-submenu" class="hidden mt-12 p-8 border-t border-b border-lux-green bg-black/80 backdrop-blur-md">
+            <div id="patek-submenu" class="hidden mt-8 md:mt-12 p-6 md:p-8 border-t border-b border-lux-green bg-black/80 backdrop-blur-md rounded-sm">
                 <div class="flex items-center mb-6">
                     <div class="w-2 h-2 bg-lux-green rounded-full mr-3"></div>
-                    <h4 class="text-white font-serif text-xl italic">Patek Philippe Collections</h4>
+                    <h4 class="text-white font-serif text-lg md:text-xl italic">Patek Philippe Collections</h4>
                 </div>
                 <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 text-sm font-sans text-gray-400">
                     <div class="hover:text-lux-green cursor-pointer transition-colors py-1">Nautilus 鸚鵡螺</div>
@@ -440,25 +501,25 @@
     </section>
 
     <!-- Services -->
-    <section id="services" class="py-32 bg-black relative">
+    <section id="services" class="py-20 md:py-32 bg-black relative">
         <div class="max-w-7xl mx-auto px-6 relative z-10">
             <h2 class="font-serif text-3xl text-white mb-12 text-center">加購專區 & 尊榮服務</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
-                <div class="p-8 text-center border border-white/10 hover:border-lux-green transition-all duration-500 hover:-translate-y-2">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-10">
+                <div class="p-8 text-center border border-white/10 hover:border-lux-green transition-all duration-500 hover:-translate-y-2 rounded-sm">
                     <div class="w-16 h-16 mx-auto bg-gray-900 rounded-full flex items-center justify-center mb-6 text-lux-green">
                         <i class="far fa-gem text-2xl"></i>
                     </div>
                     <h3 class="text-white font-serif text-xl mb-3">鑲鑽客製</h3>
                     <p class="text-gray-500 text-sm font-light leading-relaxed">頂級珠寶鑲嵌工藝，<br>打造獨一無二的奢華。</p>
                 </div>
-                <div class="p-8 text-center border border-white/10 hover:border-lux-green transition-all duration-500 hover:-translate-y-2">
+                <div class="p-8 text-center border border-white/10 hover:border-lux-green transition-all duration-500 hover:-translate-y-2 rounded-sm">
                     <div class="w-16 h-16 mx-auto bg-gray-900 rounded-full flex items-center justify-center mb-6 text-lux-green">
                         <i class="fas fa-shield-alt text-2xl"></i>
                     </div>
                     <h3 class="text-white font-serif text-xl mb-3">包膜防護</h3>
                     <p class="text-gray-500 text-sm font-light leading-relaxed">高科技奈米鍍膜，<br>防止日常刮傷，保持完美。</p>
                 </div>
-                <div class="p-8 text-center border border-white/10 hover:border-lux-green transition-all duration-500 hover:-translate-y-2">
+                <div class="p-8 text-center border border-white/10 hover:border-lux-green transition-all duration-500 hover:-translate-y-2 rounded-sm">
                     <div class="w-16 h-16 mx-auto bg-gray-900 rounded-full flex items-center justify-center mb-6 text-lux-green">
                         <i class="fas fa-box text-2xl"></i>
                     </div>
@@ -470,30 +531,30 @@
     </section>
 
     <!-- Contact VIP Card Section -->
-    <section id="contact" class="py-32 bg-[#050505] relative border-t border-gray-900">
+    <section id="contact" class="py-20 md:py-32 bg-[#050505] relative border-t border-gray-900">
         <div class="max-w-3xl mx-auto px-6">
             
             <!-- VIP Card Design -->
-            <div class="luxury-panel p-10 md:p-14 rounded-xl shadow-2xl relative overflow-hidden bg-black border border-gray-800">
+            <div class="luxury-panel p-8 md:p-14 rounded-xl shadow-2xl relative overflow-hidden bg-black border border-gray-800">
                 <!-- Card Shine Effect -->
                 <div class="absolute -inset-[100%] bg-gradient-to-r from-transparent via-white/5 to-transparent transform -rotate-45 pointer-events-none animate-pulse"></div>
                 
                 <div class="text-center relative z-10">
                     <div class="text-lux-green text-xs font-sans tracking-[0.3em] uppercase mb-4">Private Concierge</div>
-                    <h2 class="font-serif text-3xl md:text-4xl text-white mb-8">預約您的尊榮鑑賞</h2>
-                    <p class="text-gray-400 font-light mb-10 max-w-lg mx-auto">
+                    <h2 class="font-serif text-2xl md:text-4xl text-white mb-8">預約您的尊榮鑑賞</h2>
+                    <p class="text-gray-400 font-light mb-10 max-w-lg mx-auto text-sm md:text-base leading-relaxed">
                         我們採取預約制服務，為您保留專屬的鑑賞時間與空間。
                         請點擊下方按鈕，連結專屬顧問。
                     </p>
                     
-                    <a href="https://lin.ee/pIP1ioL" target="_blank" class="inline-flex items-center justify-center bg-lux-green text-white px-10 py-5 rounded-sm hover:bg-emerald-700 transition-all duration-300 font-sans tracking-widest text-sm shadow-[0_0_20px_rgba(0,96,57,0.4)] hover:shadow-[0_0_30px_rgba(0,96,57,0.6)]">
+                    <a href="https://lin.ee/pIP1ioL" target="_blank" class="inline-flex items-center justify-center bg-lux-green text-white px-10 py-5 rounded-sm hover:bg-emerald-700 transition-all duration-300 font-sans tracking-widest text-sm shadow-[0_0_20px_rgba(0,96,57,0.4)] hover:shadow-[0_0_30px_rgba(0,96,57,0.6)] w-full md:w-auto">
                         <i class="fab fa-line text-xl mr-3"></i> 連結 LINE 官方顧問
                     </a>
 
                     <div class="mt-12 flex justify-center space-x-8 border-t border-white/10 pt-8">
-                        <a href="#" class="text-gray-500 hover:text-white transition-colors"><i class="fab fa-instagram text-lg"></i></a>
-                        <a href="#" class="text-gray-500 hover:text-white transition-colors"><i class="fab fa-facebook-f text-lg"></i></a>
-                        <a href="#" class="text-gray-500 hover:text-white transition-colors"><i class="far fa-envelope text-lg"></i></a>
+                        <a href="#" class="text-gray-500 hover:text-white transition-colors" aria-label="Instagram"><i class="fab fa-instagram text-lg"></i></a>
+                        <a href="#" class="text-gray-500 hover:text-white transition-colors" aria-label="Facebook"><i class="fab fa-facebook-f text-lg"></i></a>
+                        <a href="#" class="text-gray-500 hover:text-white transition-colors" aria-label="Email"><i class="far fa-envelope text-lg"></i></a>
                     </div>
                 </div>
             </div>
