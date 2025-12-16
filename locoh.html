@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="zh-TW" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>奢侈人生 | Luxury Life Timepieces</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        lux: {
+                            black: '#050505',
+                            dark: '#0a0a0a',
+                            panel: 'rgba(20, 20, 20, 0.9)',
+                            green: '#006039', // Rolex Green style
+                            lightGreen: '#10b981',
+                            gold: '#d4af37',
+                            silver: '#e5e7eb'
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['Playfair Display', 'serif'],
+                        sans: ['Montserrat', 'sans-serif'],
+                        body: ['Noto Sans TC', 'sans-serif'],
+                    },
+                    backgroundImage: {
+                        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Background Canvas */
+        #bg-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: linear-gradient(to bottom, #000000, #050505);
+        }
+
+        /* Custom Scrollbar - Minimalist */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #000; 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #006039; 
+            border-radius: 3px;
+        }
+
+        /* Luxury Utilities */
+        .luxury-panel {
+            background: rgba(10, 10, 10, 0.85);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+            transition: all 0.4s ease;
+        }
+        
+        .luxury-panel:hover {
+            border-color: rgba(0, 96, 57, 0.6);
+            transform: translateY(-2px);
+            box-shadow: 0 15px 40px -10px rgba(0, 96, 57, 0.15);
+        }
+        
+        .text-gradient-gold {
+            background: linear-gradient(135deg, #fbfbfb 0%, #d4af37 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Button Styling */
+        .btn-luxury {
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+        }
+        
+        .btn-luxury::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background: #006039;
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: transform 0.4s ease;
+        }
+        
+        .btn-luxury:hover::after {
+            transform: scaleX(1);
+            transform-origin: left;
+        }
+
+        .btn-primary {
+            background: #006039;
+            color: white;
+            border: 1px solid #006039;
+        }
+        
+        .btn-primary:hover {
+            background: transparent;
+            color: #10b981;
+        }
+
+        /* Smooth Reveal Animation */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Typing Cursor - Elegant */
+        .typing-cursor::after {
+            content: '|';
+            animation: blink 1.2s infinite;
+            color: #006039;
+            font-weight: 300;
+        }
+        
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+    </style>
+</head>
+<body class="text-lux-silver font-body antialiased overflow-x-hidden selection:bg-lux-green selection:text-white">
+
+    <!-- Background Effect -->
+    <canvas id="bg-canvas"></canvas>
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-black/90 backdrop-blur-md border-b border-white/5 transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="flex items-center justify-between h-24">
+                <!-- Logo -->
+                <div class="flex-shrink-0 cursor-pointer group" onclick="window.scrollTo(0,0)">
+                    <div class="font-serif text-2xl font-semibold tracking-widest text-white group-hover:text-lux-lightGreen transition-colors">
+                        LUXURY<span class="text-lux-green">.LIFE</span>
+                    </div>
+                    <div class="text-[9px] text-gray-500 uppercase tracking-[0.3em] mt-1 font-sans">Premium Timepieces</div>
+                </div>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-12">
+                    <a href="#must-read" class="text-sm font-sans tracking-widest hover:text-lux-green transition-colors py-2">購買必看</a>
+                    <a href="#about" class="text-sm font-sans tracking-widest hover:text-lux-green transition-colors py-2">關於我</a>
+                    <a href="#brands" class="text-sm font-sans tracking-widest hover:text-lux-green transition-colors py-2">品牌總覽</a>
+                    <a href="#services" class="text-sm font-sans tracking-widest hover:text-lux-green transition-colors py-2">尊榮服務</a>
+                    <a href="#contact" class="px-6 py-2 border border-white/20 text-xs font-sans tracking-widest hover:bg-lux-green hover:border-lux-green hover:text-white transition-all duration-500">
+                        預約鑑賞
+                    </a>
+                </div>
+
+                <!-- Mobile menu button -->
+                <div class="md:hidden">
+                    <button onclick="document.getElementById('mobile-menu').classList.toggle('hidden')" class="text-gray-400 hover:text-white p-2">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div class="hidden md:hidden bg-black/95 border-b border-white/10 absolute w-full" id="mobile-menu">
+            <div class="px-6 py-4 space-y-4">
+                <a href="#must-read" class="block text-gray-300 hover:text-lux-green text-sm tracking-widest">購買必看</a>
+                <a href="#about" class="block text-gray-300 hover:text-lux-green text-sm tracking-widest">關於我</a>
+                <a href="#brands" class="block text-gray-300 hover:text-lux-green text-sm tracking-widest">品牌總覽</a>
+                <a href="#contact" class="block text-lux-green text-sm tracking-widest font-semibold">預約鑑賞 ></a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="h-screen flex items-center justify-center relative px-6">
+        <div class="text-center z-10 max-w-4xl mx-auto">
+            <div class="mb-6 inline-block">
+                <span class="text-lux-green text-xs font-sans tracking-[0.4em] uppercase border-b border-lux-green/30 pb-2">High-End Replica & Customization</span>
+            </div>
+            
+            <h1 class="font-serif text-5xl md:text-7xl lg:text-8xl text-white mb-8 leading-tight">
+                <span id="typewriter" class="typing-cursor"></span>
+            </h1>
+            
+            <p class="mt-6 max-w-2xl mx-auto text-lg text-gray-400 font-light font-sans tracking-wide leading-relaxed reveal">
+                以 7 年淬鍊的專業，演繹時間的藝術。<br>
+                從極致復刻到專屬訂製，讓每一秒都成為經典。
+            </p>
+            
+            <div class="mt-12 flex flex-col md:flex-row justify-center gap-6 reveal">
+                <a href="#brands" class="btn-primary px-10 py-4 font-sans text-sm tracking-[0.2em]">
+                    探索系列
+                </a>
+                <a href="#contact" class="btn-luxury border border-white/30 text-white px-10 py-4 font-sans text-sm tracking-[0.2em] hover:bg-white/5">
+                    專屬諮詢
+                </a>
+            </div>
+        </div>
+        
+        <!-- Scroll Down Indicator -->
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce text-gray-600">
+            <span class="text-[10px] uppercase tracking-widest mb-2 block text-center">Scroll</span>
+            <i class="fas fa-chevron-down text-lux-green"></i>
+        </div>
+    </section>
+
+    <!-- Philosophy (Must Read) -->
+    <section id="must-read" class="py-32 relative bg-lux-dark">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                
+                <!-- Text Content -->
+                <div class="order-2 lg:order-1 reveal">
+                    <h2 class="font-serif text-4xl text-white mb-2">核心價值</h2>
+                    <p class="font-sans text-lux-green text-sm tracking-widest uppercase mb-10">The Philosophy</p>
+                    
+                    <div class="space-y-12">
+                        <div class="relative pl-8 border-l border-lux-green/30">
+                            <h3 class="text-xl text-white font-serif italic mb-3">"尊榮的派頭，不用金錢衡量"</h3>
+                            <p class="text-gray-400 font-light leading-relaxed">
+                                卓越的品味，歸功鐘錶靈魂。<br>
+                                With an esteemed aura that defies monetary measures.
+                            </p>
+                        </div>
+                        
+                        <div class="relative pl-8 border-l border-lux-green/30">
+                            <h3 class="text-xl text-white font-serif italic mb-3">"無形的品味，地位的象徵"</h3>
+                            <p class="text-gray-400 font-light leading-relaxed">
+                                『錶』不只紀錄時間，更是您人生高度的縮影。<br>
+                                鈔票花在刀口上為明智的抉擇，不須言語就能證實您的實力。
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Feature List (Styled as a luxury card) -->
+                <div class="order-1 lg:order-2 reveal">
+                    <div class="luxury-panel p-10 md:p-12 relative overflow-hidden bg-gradient-to-br from-gray-900 to-black">
+                        <!-- Decorative Circle -->
+                        <div class="absolute -right-10 -top-10 w-40 h-40 border border-lux-green/20 rounded-full"></div>
+                        
+                        <h3 class="font-serif text-2xl text-white mb-8 border-b border-white/10 pb-4">
+                            服務承諾 <span class="text-xs font-sans text-lux-green ml-2 align-middle tracking-wider">COMMITMENT</span>
+                        </h3>
+                        
+                        <ul class="space-y-6">
+                            <li class="flex items-start group">
+                                <span class="text-lux-green mr-4 mt-1 text-xs"><i class="fas fa-square-full transform rotate-45"></i></span>
+                                <div>
+                                    <span class="text-white block font-serif tracking-wide group-hover:text-lux-lightGreen transition-colors">市場最先進復刻技術</span>
+                                    <span class="text-xs text-gray-500 font-sans mt-1 block">Advanced Technology</span>
+                                </div>
+                            </li>
+                            <li class="flex items-start group">
+                                <span class="text-lux-green mr-4 mt-1 text-xs"><i class="fas fa-square-full transform rotate-45"></i></span>
+                                <div>
+                                    <span class="text-white block font-serif tracking-wide group-hover:text-lux-lightGreen transition-colors">全台 4 間實體據點</span>
+                                    <span class="text-xs text-gray-500 font-sans mt-1 block">4 Physical Locations</span>
+                                </div>
+                            </li>
+                            <li class="flex items-start group">
+                                <span class="text-lux-green mr-4 mt-1 text-xs"><i class="fas fa-square-full transform rotate-45"></i></span>
+                                <div>
+                                    <span class="text-white block font-serif tracking-wide group-hover:text-lux-lightGreen transition-colors">3 年完善售後保固</span>
+                                    <span class="text-xs text-gray-500 font-sans mt-1 block">3-Year Comprehensive Warranty</span>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Me -->
+    <section id="about" class="py-32 relative bg-black">
+        <div class="max-w-4xl mx-auto px-6 text-center reveal">
+            <i class="fas fa-crown text-3xl text-lux-gold mb-6 opacity-80"></i>
+            <h2 class="font-serif text-4xl md:text-5xl text-white mb-6">關於 奢侈人生</h2>
+            <div class="w-24 h-1 bg-lux-green mx-auto mb-10"></div>
+            
+            <p class="text-lg md:text-xl text-gray-300 leading-9 font-light font-serif italic mb-12">
+                「我們提供的不僅是腕錶，更是身分代碼的完美升級。」
+            </p>
+            
+            <p class="text-gray-400 leading-relaxed font-sans max-w-2xl mx-auto mb-16">
+                擁有 7 年資深服務經驗，專注於打造專屬個人的訂製品品牌。
+                在這個講求細節的時代，我們堅持材料皆為進口，並提供業界唯一的訂製服務。
+                每一隻腕錶都經過精密校準，確保與您的個人形象完美同步。
+            </p>
+
+            <!-- Stats Grid -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-px bg-white/10 border border-white/10">
+                <div class="bg-black p-8 hover:bg-white/5 transition-colors duration-500">
+                    <div class="text-3xl font-serif text-white mb-2">7+</div>
+                    <div class="text-xs text-lux-green uppercase tracking-widest">Years Exp</div>
+                </div>
+                <div class="bg-black p-8 hover:bg-white/5 transition-colors duration-500">
+                    <div class="text-3xl font-serif text-white mb-2">4</div>
+                    <div class="text-xs text-lux-green uppercase tracking-widest">Locations</div>
+                </div>
+                <div class="bg-black p-8 hover:bg-white/5 transition-colors duration-500">
+                    <div class="text-3xl font-serif text-white mb-2">100%</div>
+                    <div class="text-xs text-lux-green uppercase tracking-widest">Exclusive</div>
+                </div>
+                <div class="bg-black p-8 hover:bg-white/5 transition-colors duration-500">
+                    <div class="text-3xl font-serif text-white mb-2">3yr</div>
+                    <div class="text-xs text-lux-green uppercase tracking-widest">Warranty</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Brands Architecture -->
+    <section id="brands" class="py-32 bg-lux-dark relative">
+        <!-- Subtle Pattern Background -->
+        <div class="absolute inset-0 opacity-5" style="background-image: radial-gradient(#10b981 1px, transparent 1px); background-size: 30px 30px;"></div>
+
+        <div class="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-16 border-b border-white/10 pb-6">
+                <div>
+                    <h2 class="font-serif text-4xl text-white mb-2">品牌資料庫</h2>
+                    <p class="font-sans text-lux-green text-sm tracking-widest uppercase">Curated Collections</p>
+                </div>
+                <div class="text-xs text-gray-500 font-sans mt-4 md:mt-0">
+                    點擊特定品牌查看系列細節
+                </div>
+            </div>
+
+            <!-- Brand Grid -->
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                
+                <!-- Rolex (Interactive) -->
+                <div onclick="toggleSubmenu('rolex-submenu')" class="luxury-panel p-8 cursor-pointer group text-center border-t-2 border-t-transparent hover:border-t-lux-green">
+                    <div class="h-12 flex items-center justify-center mb-4">
+                        <span class="text-3xl text-white group-hover:text-lux-lightGreen transition-colors"><i class="fas fa-crown"></i></span>
+                    </div>
+                    <h3 class="text-lg font-serif font-bold text-white tracking-wider">ROLEX</h3>
+                    <p class="text-xs text-gray-500 font-sans mt-2 uppercase tracking-widest">勞力士</p>
+                    <div class="mt-6 w-8 h-px bg-white/20 mx-auto group-hover:w-16 group-hover:bg-lux-green transition-all duration-500"></div>
+                </div>
+
+                <!-- Patek (Interactive) -->
+                <div onclick="toggleSubmenu('patek-submenu')" class="luxury-panel p-8 cursor-pointer group text-center border-t-2 border-t-transparent hover:border-t-lux-green">
+                    <div class="h-12 flex items-center justify-center mb-4">
+                        <span class="text-3xl text-white group-hover:text-lux-lightGreen transition-colors"><i class="fas fa-star-of-life"></i></span>
+                    </div>
+                    <h3 class="text-lg font-serif font-bold text-white tracking-wider">PATEK PHILIPPE</h3>
+                    <p class="text-xs text-gray-500 font-sans mt-2 uppercase tracking-widest">百達翡麗</p>
+                    <div class="mt-6 w-8 h-px bg-white/20 mx-auto group-hover:w-16 group-hover:bg-lux-green transition-all duration-500"></div>
+                </div>
+
+                <!-- Standard Brands -->
+                <div class="luxury-panel p-8 group text-center hover:bg-white/5 transition-colors">
+                    <h3 class="text-base font-serif font-bold text-gray-300 group-hover:text-white tracking-wider">AUDEMARS PIGUET</h3>
+                    <p class="text-[10px] text-gray-600 font-sans mt-2">愛彼</p>
+                </div>
+                <div class="luxury-panel p-8 group text-center hover:bg-white/5 transition-colors">
+                    <h3 class="text-base font-serif font-bold text-gray-300 group-hover:text-white tracking-wider">RICHARD MILLE</h3>
+                    <p class="text-[10px] text-gray-600 font-sans mt-2">理查德米勒</p>
+                </div>
+                <div class="luxury-panel p-8 group text-center hover:bg-white/5 transition-colors">
+                    <h3 class="text-base font-serif font-bold text-gray-300 group-hover:text-white tracking-wider">PANERAI</h3>
+                    <p class="text-[10px] text-gray-600 font-sans mt-2">沛納海</p>
+                </div>
+                <div class="luxury-panel p-8 group text-center hover:bg-white/5 transition-colors">
+                    <h3 class="text-base font-serif font-bold text-gray-300 group-hover:text-white tracking-wider">OMEGA</h3>
+                    <p class="text-[10px] text-gray-600 font-sans mt-2">歐米茄</p>
+                </div>
+                <div class="luxury-panel p-8 group text-center hover:bg-white/5 transition-colors">
+                    <h3 class="text-base font-serif font-bold text-gray-300 group-hover:text-white tracking-wider">CARTIER</h3>
+                    <p class="text-[10px] text-gray-600 font-sans mt-2">卡地亞</p>
+                </div>
+                <div class="luxury-panel p-8 group text-center hover:bg-white/5 transition-colors">
+                    <h3 class="text-base font-serif font-bold text-gray-300 group-hover:text-white tracking-wider">HUBLOT</h3>
+                    <p class="text-[10px] text-gray-600 font-sans mt-2">宇舶</p>
+                </div>
+                <div class="luxury-panel p-8 group text-center hover:bg-white/5 transition-colors">
+                    <h3 class="text-base font-serif font-bold text-gray-300 group-hover:text-white tracking-wider">VACHERON</h3>
+                    <p class="text-[10px] text-gray-600 font-sans mt-2">江詩丹頓</p>
+                </div>
+                <div class="luxury-panel p-8 group text-center hover:bg-white/5 transition-colors">
+                    <h3 class="text-base font-serif font-bold text-gray-300 group-hover:text-white tracking-wider">IWC / TUDOR</h3>
+                    <p class="text-[10px] text-gray-600 font-sans mt-2">萬國 / 帝舵</p>
+                </div>
+            </div>
+
+            <!-- Submenus (Hidden by default) -->
+            <div id="rolex-submenu" class="hidden mt-12 p-8 border-t border-b border-lux-green bg-black/80 backdrop-blur-md animate-fade-in">
+                <div class="flex items-center mb-6">
+                    <div class="w-2 h-2 bg-lux-green rounded-full mr-3"></div>
+                    <h4 class="text-white font-serif text-xl italic">Rolex Collections</h4>
+                </div>
+                <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4 text-sm font-sans text-gray-400">
+                    <div class="hover:text-lux-green cursor-pointer transition-colors py-1">Submariner 水鬼</div>
+                    <div class="hover:text-lux-green cursor-pointer transition-colors py-1">Daytona 迪通拿</div>
+                    <div class="hover:text-lux-green cursor-pointer transition-colors py-1">GMT-Master 格林威治</div>
+                    <div class="hover:text-lux-green cursor-pointer transition-colors py-1">Yacht-Master 遊艇</div>
+                    <div class="hover:text-lux-green cursor-pointer transition-colors py-1">Sea-Dweller 海使</div>
+                    <div class="hover:text-lux-green cursor-pointer transition-colors py-1">Datejust 日誌</div>
+                    <div class="hover:text-lux-green cursor-pointer transition-colors py-1">Day-Date 星期日誌</div>
+                    <div class="hover:text-lux-green cursor-pointer transition-colors py-1">Explorer 探險家</div>
+                    <div class="hover:text-lux-green cursor-pointer transition-colors py-1">Oyster Perpetual 蠔式</div>
+                    <div class="hover:text-lux-green cursor-pointer transition-colors py-1">Sky-Dweller 天行者</div>
+                    <div class="hover:text-lux-green cursor-pointer transition-colors py-1">Air-King 空霸</div>
+                </div>
+            </div>
+
+            <div id="patek-submenu" class="hidden mt-12 p-8 border-t border-b border-lux-green bg-black/80 backdrop-blur-md">
+                <div class="flex items-center mb-6">
+                    <div class="w-2 h-2 bg-lux-green rounded-full mr-3"></div>
+                    <h4 class="text-white font-serif text-xl italic">Patek Philippe Collections</h4>
+                </div>
+                <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 text-sm font-sans text-gray-400">
+                    <div class="hover:text-lux-green cursor-pointer transition-colors py-1">Nautilus 鸚鵡螺</div>
+                    <div class="hover:text-lux-green cursor-pointer transition-colors py-1">Aquanaut 海底探險家</div>
+                    <div class="hover:text-lux-green cursor-pointer transition-colors py-1">Grand Complications 超級複雜功能</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services -->
+    <section id="services" class="py-32 bg-black relative">
+        <div class="max-w-7xl mx-auto px-6 relative z-10">
+            <h2 class="font-serif text-3xl text-white mb-12 text-center">加購專區 & 尊榮服務</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+                <div class="p-8 text-center border border-white/10 hover:border-lux-green transition-all duration-500 hover:-translate-y-2">
+                    <div class="w-16 h-16 mx-auto bg-gray-900 rounded-full flex items-center justify-center mb-6 text-lux-green">
+                        <i class="far fa-gem text-2xl"></i>
+                    </div>
+                    <h3 class="text-white font-serif text-xl mb-3">鑲鑽客製</h3>
+                    <p class="text-gray-500 text-sm font-light leading-relaxed">頂級珠寶鑲嵌工藝，<br>打造獨一無二的奢華。</p>
+                </div>
+                <div class="p-8 text-center border border-white/10 hover:border-lux-green transition-all duration-500 hover:-translate-y-2">
+                    <div class="w-16 h-16 mx-auto bg-gray-900 rounded-full flex items-center justify-center mb-6 text-lux-green">
+                        <i class="fas fa-shield-alt text-2xl"></i>
+                    </div>
+                    <h3 class="text-white font-serif text-xl mb-3">包膜防護</h3>
+                    <p class="text-gray-500 text-sm font-light leading-relaxed">高科技奈米鍍膜，<br>防止日常刮傷，保持完美。</p>
+                </div>
+                <div class="p-8 text-center border border-white/10 hover:border-lux-green transition-all duration-500 hover:-translate-y-2">
+                    <div class="w-16 h-16 mx-auto bg-gray-900 rounded-full flex items-center justify-center mb-6 text-lux-green">
+                        <i class="fas fa-box text-2xl"></i>
+                    </div>
+                    <h3 class="text-white font-serif text-xl mb-3">原廠配件</h3>
+                    <p class="text-gray-500 text-sm font-light leading-relaxed">錶盒、證書、提袋，<br>全套配置，尊榮完整。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact VIP Card Section -->
+    <section id="contact" class="py-32 bg-[#050505] relative border-t border-gray-900">
+        <div class="max-w-3xl mx-auto px-6">
+            
+            <!-- VIP Card Design -->
+            <div class="luxury-panel p-10 md:p-14 rounded-xl shadow-2xl relative overflow-hidden bg-black border border-gray-800">
+                <!-- Card Shine Effect -->
+                <div class="absolute -inset-[100%] bg-gradient-to-r from-transparent via-white/5 to-transparent transform -rotate-45 pointer-events-none animate-pulse"></div>
+                
+                <div class="text-center relative z-10">
+                    <div class="text-lux-green text-xs font-sans tracking-[0.3em] uppercase mb-4">Private Concierge</div>
+                    <h2 class="font-serif text-3xl md:text-4xl text-white mb-8">預約您的尊榮鑑賞</h2>
+                    <p class="text-gray-400 font-light mb-10 max-w-lg mx-auto">
+                        我們採取預約制服務，為您保留專屬的鑑賞時間與空間。
+                        請點擊下方按鈕，連結專屬顧問。
+                    </p>
+                    
+                    <a href="https://lin.ee/pIP1ioL" target="_blank" class="inline-flex items-center justify-center bg-lux-green text-white px-10 py-5 rounded-sm hover:bg-emerald-700 transition-all duration-300 font-sans tracking-widest text-sm shadow-[0_0_20px_rgba(0,96,57,0.4)] hover:shadow-[0_0_30px_rgba(0,96,57,0.6)]">
+                        <i class="fab fa-line text-xl mr-3"></i> 連結 LINE 官方顧問
+                    </a>
+
+                    <div class="mt-12 flex justify-center space-x-8 border-t border-white/10 pt-8">
+                        <a href="#" class="text-gray-500 hover:text-white transition-colors"><i class="fab fa-instagram text-lg"></i></a>
+                        <a href="#" class="text-gray-500 hover:text-white transition-colors"><i class="fab fa-facebook-f text-lg"></i></a>
+                        <a href="#" class="text-gray-500 hover:text-white transition-colors"><i class="far fa-envelope text-lg"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12 text-gray-700 text-xs font-sans tracking-widest">
+                &copy; 2024 LUXURY LIFE TIMEPIECES. ALL RIGHTS RESERVED.
+            </div>
+        </div>
+    </section>
+
+    <!-- Scripts -->
+    <script>
+        // Elegant Green Particle Effect (Simulating "Dust in Light" or "Champagne Bubbles")
+        const canvas = document.getElementById('bg-canvas');
+        const ctx = canvas.getContext('2d');
+        let width, height;
+        let particles = [];
+
+        function resize() {
+            width = canvas.width = window.innerWidth;
+            height = canvas.height = window.innerHeight;
+        }
+
+        class Particle {
+            constructor() {
+                this.x = Math.random() * width;
+                this.y = Math.random() * height;
+                this.size = Math.random() * 2;
+                this.speedY = Math.random() * 0.2 + 0.1; // Very slow moving up
+                this.opacity = Math.random() * 0.5;
+                this.fadeSpeed = Math.random() * 0.002;
+            }
+
+            update() {
+                this.y -= this.speedY;
+                this.opacity += this.fadeSpeed;
+
+                if (this.opacity > 0.5 || this.opacity < 0.1) {
+                    this.fadeSpeed = -this.fadeSpeed;
+                }
+
+                if (this.y < 0) {
+                    this.y = height;
+                    this.x = Math.random() * width;
+                }
+            }
+
+            draw() {
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fillStyle = `rgba(16, 185, 129, ${this.opacity})`; // Green tint
+                ctx.fill();
+            }
+        }
+
+        function initParticles() {
+            particles = [];
+            const particleCount = Math.floor(window.innerWidth / 10); // Density
+            for (let i = 0; i < particleCount; i++) {
+                particles.push(new Particle());
+            }
+        }
+
+        function animate() {
+            // Create a trail effect for smoother visuals
+            ctx.fillStyle = 'rgba(5, 5, 5, 0.1)'; 
+            ctx.fillRect(0, 0, width, height);
+
+            particles.forEach(p => {
+                p.update();
+                p.draw();
+            });
+
+            requestAnimationFrame(animate);
+        }
+
+        window.addEventListener('resize', () => {
+            resize();
+            initParticles();
+        });
+
+        resize();
+        initParticles();
+        animate();
+
+
+        // Typewriter Effect
+        const textToType = "奢侈人生高級腕錶";
+        const typeWriterElement = document.getElementById('typewriter');
+        let typeIndex = 0;
+
+        function typeWriter() {
+            if (typeIndex < textToType.length) {
+                typeWriterElement.innerHTML += textToType.charAt(typeIndex);
+                typeIndex++;
+                setTimeout(typeWriter, 200); // Slower, more elegant typing
+            }
+        }
+        setTimeout(typeWriter, 1000);
+
+
+        // Toggle Submenus
+        function toggleSubmenu(id) {
+            const el = document.getElementById(id);
+            if (el.classList.contains('hidden')) {
+                el.classList.remove('hidden');
+            } else {
+                el.classList.add('hidden');
+            }
+        }
+
+        // Reveal on Scroll
+        function reveal() {
+            var reveals = document.querySelectorAll(".reveal");
+            for (var i = 0; i < reveals.length; i++) {
+                var windowHeight = window.innerHeight;
+                var elementTop = reveals[i].getBoundingClientRect().top;
+                var elementVisible = 150;
+                if (elementTop < windowHeight - elementVisible) {
+                    reveals[i].classList.add("active");
+                }
+            }
+        }
+        window.addEventListener("scroll", reveal);
+        // Trigger once on load
+        reveal();
+    </script>
+</body>
+</html>
